@@ -1,0 +1,13 @@
+6 6 
+M34
+T240
+B20
+R3-R4-RT
+
+G B  P O Y  B
+B CG G P B  O
+R P  R Y CO B
+B G  G Y G  R
+Y CB Y B P  O
+B P  G Y R  P
+

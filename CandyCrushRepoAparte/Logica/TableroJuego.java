@@ -5,13 +5,13 @@ import Entidades.Gelatina;
 
 public interface TableroJuego extends TableroEntidad{
 	
+	public void agregar_entidad(Entidad e);
+
+	public void agregar_entidad_y_asociada(Gelatina g);
+
 	public void asociar_entidades_logicas_y_graficas();
 	
 	public void resetar_tablero(int cant_filas, int cant_columnas);
-	
-	public void agregar_entidad(Entidad e);
-	
-	public void agregar_entidad_y_asociada(Gelatina g);
 	
 	public void fijar_jugador(int fila_destino, int columna_destino);
 	

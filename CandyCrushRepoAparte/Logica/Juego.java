@@ -48,7 +48,7 @@ public class Juego {
 
 	public Juego() {
 		tablero = new Tablero(this);
-		numero_nivel = 1;
+		numero_nivel = 3;
 		nivel = GeneradorNivel.cargar_nivel_y_tablero(numero_nivel, tablero, objetivos, reglas);
 		reloj = new Tiempo(Integer.parseInt(objetivos[0].substring(1)),this);
 		nivel.set_objetivos(objetivos, reloj); 
@@ -166,10 +166,6 @@ public class Juego {
 
 	public int get_vidas() {
 		return vidas;
-	}
-
-	public Tablero getTablero(){
-		return tablero;
 	}
 
 	public void crearPuntaje(String nombre){

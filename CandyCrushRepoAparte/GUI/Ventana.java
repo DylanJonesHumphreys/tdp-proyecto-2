@@ -383,7 +383,7 @@ public class Ventana extends JFrame implements VentanaAnimable, VentanaJuego, Ve
 		panelObjetivoCaramelo.setBorder(new RoundBorder(10));
 		if(cantidad_caramelos_objetivo!=0){
 			//-- busca y configura la imagen del caramelo que corresponda
-			Entidad e = new Caramelo(juego.getTablero(),-1, -1, color_caramelo_objetivo);
+			Entidad e = new Caramelo(null,-1, -1, color_caramelo_objetivo);
 			ImageIcon caramelo = new ImageIcon(this.getClass().getResource(tema.get_path_imagen(e)));
 			Image img = caramelo.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
 			Icon icono = new ImageIcon(img);
@@ -402,7 +402,7 @@ public class Ventana extends JFrame implements VentanaAnimable, VentanaJuego, Ve
 		panelObjetivoEspecial.setBorder(new RoundBorder(10));
 		if(cantidad_glaseados_objetivos!=0){
 			//-- busca y configura la imagen del caramelo que corresponda
-			Entidad e = new Glaseado(juego.getTablero(),-1, -1, Entidades.Color.BLANCO);
+			Entidad e = new Glaseado(null,-1, -1, Entidades.Color.BLANCO);
 			ImageIcon caramelo = new ImageIcon(this.getClass().getResource(tema.get_path_imagen(e)));
 			Image img = caramelo.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
 			Icon icono = new ImageIcon(img);

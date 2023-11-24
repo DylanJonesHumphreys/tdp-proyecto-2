@@ -4,17 +4,17 @@ import Entidades.Entidad;
 
 public interface TableroEntidad {
 	
-	public void reubicar(Entidad e);
-
-	public boolean en_rango(int fila, int columna);
-
 	public int get_filas();
 
 	public int get_columnas();
-
-	public void terminar_partida();
+	
+	public boolean en_rango(int fila, int columna);
+	
+	public void reubicar(Entidad e);
 
 	public void resetear_nivel();
+	
+	public void terminar_partida();
 
 
 }

@@ -2,12 +2,19 @@ package Logica;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
 import Entidades.Caramelo;
 import Entidades.CarameloTdp1;
 import Entidades.CarameloTdp2;
 import Entidades.Gelatina;
 import Entidades.Glaseado;
+import Reglas.Regla;
+import Reglas.Regla_match_3;
+import Reglas.Regla_match_4_o_mas;
+import Reglas.Regla_match_L;
+import Reglas.Regla_match_T;
 import Entidades.Color;
 
 /**
@@ -69,7 +76,7 @@ public class GeneradorNivel {
 			} else {
 				reglas[0] = regla_nivel;
 			}
-			tablero.recibirReglas(reglas);
+			agregar_reglas_a_tablero(reglas, tablero);
 
 			//Leer la distribucion de los caramelos en la matrix
 			for (int i = 0; i < filas; i++) {
@@ -192,6 +199,41 @@ public class GeneradorNivel {
 		Nivel nivel= new Nivel(2, 2);
 		nivel.recibirReglas(reglas);
 		return nivel;
+	}
+
+	private static void agregar_reglas_a_tablero(String[] reg, Tablero tablero){
+		String regla;
+		List<Regla> reglas_de_match = new LinkedList<>();
+		for (int i=0; i < reg.length; i++) {
+			if (reg[i] != null) {
+				regla = reg[i];
+				switch (regla) {
+					case "R3": {
+						Regla_match_3 r3 = new Regla_match_3();
+						reglas_de_match.add(r3);
+						break;
+					}
+					case "R4": {
+						Regla_match_4_o_mas r4 = new Regla_match_4_o_mas();
+						reglas_de_match.add(r4);
+						break;
+					}
+					case "RT": {
+						Regla_match_T rt = new Regla_match_T();
+						reglas_de_match.add(rt);
+						break;
+					}
+					case "RL": {
+						Regla_match_L rl = new Regla_match_L();
+						reglas_de_match.add(rl);
+						break;
+					}
+				}
+			}
+		}
+		for (Regla regla_leida : reglas_de_match) {
+			tablero.agregar_regla(regla_leida);
+		}	
 	}
 	
 }
